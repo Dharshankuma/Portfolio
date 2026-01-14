@@ -1,0 +1,25 @@
+import "./Hero.css";
+import heroImage from "../../images/Dharshan.png";
+
+const Hero = () => {
+  return (
+    <section className="hero_section" id="home">
+      <div className="container">
+        <div className="row align-items-center">
+          {/* IMAGE — FIRST ON MOBILE */}
+          <div className="col-md-6 hero_image text-md-end text-center order-1 order-md-2">
+            <img src={heroImage} alt="Dharshan portrait" />
+          </div>
+
+          {/* TEXT — SECOND ON MOBILE */}
+          <div className="col-lg-6 col-md-6 hero_text order-2 order-md-1">
+            <p className="hero_intro">Hello</p>
+            <p className="hero_subline">— It’s Dharshan Backend developer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;

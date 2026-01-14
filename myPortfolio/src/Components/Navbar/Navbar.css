@@ -1,0 +1,137 @@
+/* Navbar wrapper */
+.navbar_content_area {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 1000;
+}
+
+.navbar_container_div {
+  width: 100%;
+  height: 100%;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar_logo a {
+  color: #222222;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-decoration: none;
+}
+
+.navbar_links {
+  display: flex;
+  gap: 24px;
+  position: static;
+  background: transparent;
+  box-shadow: none;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.navbar_links a {
+  position: relative;
+  color: #222222;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding-bottom: 6px;
+}
+
+/* Underline animation */
+.navbar_links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background-color: #222222;
+  transition: width 0.3s ease;
+}
+
+.navbar_links a:hover::after {
+  width: 100%;
+}
+
+.menu_icon {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+.menu_icon .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 26px;
+  color: #222222;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Default state */
+.menu_icon .menu {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.menu_icon .close {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.8);
+}
+
+/* Open state */
+.menu_icon.open .menu {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.8);
+}
+
+.menu_icon.open .close {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+  .menu_icon {
+    display: block;
+  }
+
+  .navbar_links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+
+    /* Animation setup */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+  }
+
+  .navbar_links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .navbar_links a::after {
+    display: none;
+  }
+}
