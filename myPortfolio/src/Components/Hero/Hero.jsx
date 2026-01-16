@@ -1,5 +1,7 @@
 import "./Hero.css";
 import heroImage from "../../images/Dharshan.png";
+import { motion } from "framer-motion";
+import PageWrapper from "../../Animations/PageWrapper";
 
 const Hero = () => {
   return (
@@ -14,7 +16,9 @@ const Hero = () => {
           {/* TEXT — SECOND ON MOBILE */}
           <div className="col-lg-6 col-md-6 hero_text order-2 order-md-1">
             <p className="hero_intro">Hello</p>
-            <p className="hero_subline">— It’s Dharshan Backend developer</p>
+            <p className="hero_subline">
+              — Dharshan, a backend-focused software developer
+            </p>
           </div>
         </div>
       </div>

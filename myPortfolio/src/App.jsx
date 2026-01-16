@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
-import Hero from "./Components/Hero/Hero";
+import Hero from "./Pages/Home";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,7 +15,13 @@ function App() {
   return (
     <>
       <Navbar />
-      <Hero />
+      <AnimatePresence mode="wait">
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </AnimatePresence>
     </>
   );
 }

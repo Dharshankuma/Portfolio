@@ -1,37 +1,40 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
+  const closeMenu = () => setOpen(false);
+
   return (
     <header className="navbar_content_area">
       <div className="navbar_container_div">
         {/* Logo */}
         <div className="navbar_logo">
-          <a href="#home">DHARSHAN</a>
+          <NavLink to="/" onClick={closeMenu}>
+            DHARSHAN
+          </NavLink>
         </div>
 
-        {/* Desktop Links */}
+        {/* Links */}
         <nav className={`navbar_links ${open ? "active" : ""}`}>
-          <a href="#about" onClick={() => setOpen(false)}>
+          <NavLink
+            to="/about"
+            onClick={closeMenu}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             About
-          </a>
-          <a href="#skills" onClick={() => setOpen(false)}>
-            Skills
-          </a>
-          {/*
-          <a href="#projects" onClick={() => setOpen(false)}>
-            Projects
-          </a>
-          */}
-          <a href="#experience" onClick={() => setOpen(false)}>
-            Experience
-          </a>
-          <a href="#contact" onClick={() => setOpen(false)}>
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            onClick={closeMenu}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Contact
-          </a>
+          </NavLink>
         </nav>
 
         {/* Mobile Icon */}

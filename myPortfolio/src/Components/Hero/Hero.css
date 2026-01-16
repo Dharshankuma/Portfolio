@@ -16,8 +16,9 @@
 }
 
 .hero_subline {
-  font-size: 14px;
-  color: #666666;
+  font-size: 17px;
+  color: #7b7b7b;
+  font-weight: 600;
 }
 
 .hero_image img {
@@ -49,7 +50,7 @@
   }
 
   .hero_subline {
-    font-size: 15px;
+    font-size: 18px;
     margin-top: 10px;
     letter-spacing: 0.02em;
     white-space: nowrap;
