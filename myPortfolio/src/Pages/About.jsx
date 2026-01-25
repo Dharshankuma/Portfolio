@@ -1,11 +1,11 @@
 import React from "react";
-import AboutSectionSection from "../Components/About/AboutSection";
+import AboutSection from "../Components/About/AboutSection";
 import PageWrapper from "../Animations/PageWrapper";
 
 const About = () => {
   return (
     <PageWrapper>
-      <AboutSectionSection />
+      <AboutSection />
     </PageWrapper>
   );
 };

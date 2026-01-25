@@ -1,0 +1,64 @@
+.common_btn_stl {
+  padding: 10px 20px !important;
+  color: #f8f8f8 !important;
+  font-weight: 600 !important;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.2s ease-in-out;
+  width: 200px;
+}
+
+/* Base button */
+.type_1_btn {
+  background-color: #7b7b7b !important;
+  border: 1px solid #7b7b7b !important;
+}
+
+.type_1_btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #222222;
+  z-index: -1;
+  transition: width 0.35s ease-in-out;
+}
+
+.type_1_btn:hover::before {
+  width: 100%;
+}
+
+.type_1_btn:hover {
+  border-color: #222222 !important;
+}
+
+.type_2_btn {
+  color: #222222 !important;
+  border: 1px solid #222222 !important;
+}
+.type_2_btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #222222;
+  z-index: -1;
+  transition: width 0.35s ease-in-out;
+}
+.type_2_btn:hover::before {
+  width: 100%;
+}
+.type_2_btn:hover {
+  color: #f8f8f8 !important;
+}
+
+@media (max-width: 768px) {
+  .common_btn_stl {
+    width: 220px;
+  }
+}

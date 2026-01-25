@@ -2,27 +2,30 @@ import "./Hero.css";
 import heroImage from "../../images/Dharshan.png";
 import { motion } from "framer-motion";
 import PageWrapper from "../../Animations/PageWrapper";
+import SectionWrapper from "../../Animations/SectionWrapper";
 
 const Hero = () => {
   return (
-    <section className="hero_section" id="home">
-      <div className="container">
-        <div className="row align-items-center">
-          {/* IMAGE — FIRST ON MOBILE */}
-          <div className="col-md-6 hero_image text-md-end text-center order-1 order-md-2">
-            <img src={heroImage} alt="Dharshan portrait" />
-          </div>
+    <SectionWrapper>
+      <section className="hero_section" id="home">
+        <div className="container">
+          <div className="row align-items-center">
+            {/* IMAGE — FIRST ON MOBILE */}
+            <div className="col-md-6 hero_image text-md-end text-center order-1 order-md-2">
+              <img src={heroImage} alt="Dharshan portrait" />
+            </div>
 
-          {/* TEXT — SECOND ON MOBILE */}
-          <div className="col-lg-6 col-md-6 hero_text order-2 order-md-1">
-            <p className="hero_intro">Hello</p>
-            <p className="hero_subline">
-              — Dharshan, a backend-focused software developer
-            </p>
+            {/* TEXT — SECOND ON MOBILE */}
+            <div className="col-lg-6 col-md-6 hero_text order-2 order-md-1">
+              <p className="hero_intro">Hello</p>
+              <p className="hero_subline">
+                — Dharshan, a backend-focused software developer
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </SectionWrapper>
   );
 };
 
