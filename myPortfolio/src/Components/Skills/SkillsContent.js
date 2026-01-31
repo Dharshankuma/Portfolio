@@ -26,7 +26,7 @@ export const SKILLS_DATA = [
     id: "languages",
     title: "Languages & Frameworks",
     icon: FaCode,
-    skills: ["C#", ".NET (Core, .NET 6+)", "ASP.NET Core"],
+    skills: ["C#", "ASP.NET Core"],
   },
   {
     id: "databases",

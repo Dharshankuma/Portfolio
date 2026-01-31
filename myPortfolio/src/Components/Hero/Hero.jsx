@@ -1,5 +1,5 @@
 import "./Hero.css";
-import heroImage from "../../images/Dharshan.png";
+import heroImage from "../../../public/images/Dharshan.png";
 import { motion } from "framer-motion";
 import PageWrapper from "../../Animations/PageWrapper";
 import SectionWrapper from "../../Animations/SectionWrapper";

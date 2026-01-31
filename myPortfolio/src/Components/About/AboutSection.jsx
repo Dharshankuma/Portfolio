@@ -1,14 +1,19 @@
 import React from "react";
-import aboutImage from "../../images/Aboutme.png";
+import aboutImage from "../../../public/images/Aboutme.png";
 import "./AboutSection.css";
 import { Button } from "../ReusableUI/Button/Button";
 import SectionWrapper from "../../Animations/SectionWrapper";
 
 const AboutSection = () => {
+  const handlePdfDownload = () => {
+    const pdfUrl = "../../../public/pdf/DHARSHAN_resume.pdf";
+    window.open(pdfUrl, "_blank");
+  };
+
   return (
     <SectionWrapper>
       <section className="about-section py-5">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row align-items-center gy-4">
             {/* Image */}
             <div className="col-lg-6 col-md-6 col-12 order-1 order-md-1 d-flex justify-content-center">
@@ -44,6 +49,7 @@ const AboutSection = () => {
                   label={"Download CV"}
                   name={"cv_download"}
                   className={"type_1_btn"}
+                  onClick={handlePdfDownload}
                 />
                 <Button
                   label={"Connect With Me"}

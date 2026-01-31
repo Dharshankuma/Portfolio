@@ -8,10 +8,10 @@ const Skills = () => {
   return (
     <SectionWrapper>
       <section className="mt-5 mb-4">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-12">
-              <h2>Skills</h2>
+              <h2>SKILLS</h2>
             </div>
           </div>
           <div className="row g-4 mt-3">

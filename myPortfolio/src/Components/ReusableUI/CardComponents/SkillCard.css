@@ -11,7 +11,7 @@
   border: none;
   border-radius: 20px;
   padding: 30px;
-  background: #ffffff;
+  background: #f8f8f8;
   box-shadow: var(--soft-shadow);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
@@ -42,7 +42,9 @@
 }
 
 .skill-card.primary-card:hover {
-  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .card-icon-wrapper {
@@ -76,8 +78,8 @@
 
 .skill-chip {
   padding: 6px 14px;
-  background: #f8f8f8;
-  border: 1px solid #f8f8f8;
+  background: #efefef;
+  border: 1px solid #efefef;
   border-radius: 50px;
   font-size: 13px;
   font-weight: 500;

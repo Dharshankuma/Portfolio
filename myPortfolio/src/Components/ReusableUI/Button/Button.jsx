@@ -11,7 +11,7 @@ export const Button = ({
     <button
       type={type}
       className={`btn common_btn_stl ${className}`}
-      onClick={onclick}
+      onClick={onClick}
       id={name}
     >
       {label}
