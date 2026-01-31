@@ -24,7 +24,7 @@ const AboutSection = () => {
               </h2>
 
               <p className="mb-3">
-                Results-driven Backend Developer with 2+ years of hands-on
+                Results-driven Software Developer with 2+ years of hands-on
                 experience in designing and building scalable, high-performance
                 backend systems.
               </p>

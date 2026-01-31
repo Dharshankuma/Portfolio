@@ -15,13 +15,15 @@ function App() {
   return (
     <>
       <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes>
-          <Route path="/" element={<Hero />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </AnimatePresence>
+      <main className="app_content">
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </AnimatePresence>
+      </main>
     </>
   );
 }

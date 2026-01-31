@@ -5,6 +5,8 @@
   width: 100%;
   height: 70px;
   z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: #f8f8f8;
 }
 
 .navbar_container_div {
@@ -78,7 +80,9 @@
   left: 0;
   font-size: 26px;
   color: #222222;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
 /* Default state */
@@ -126,7 +130,10 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(-12px);
-    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease,
+      visibility 0.35s ease;
   }
 
   .navbar_links.active {

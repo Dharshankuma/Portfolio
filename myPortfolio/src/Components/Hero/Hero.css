@@ -41,7 +41,7 @@
   }
 
   .hero_intro {
-    font-size: 120px;
+    font-size: 100px;
     line-height: 0.95;
     letter-spacing: 0.18em;
     white-space: nowrap;
@@ -60,7 +60,7 @@
 
   .hero_image img {
     margin-top: 40px;
-    width: 500px;
+    width: 400px;
     height: 400px;
   }
 }
