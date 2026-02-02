@@ -185,3 +185,39 @@ footer {
 .error_mand {
   color: red;
 }
+.info-content span {
+  color: var(--secondary-text);
+  font-size: 0.95rem;
+  word-break: break-word; /* 🔥 key fix */
+  overflow-wrap: anywhere; /* 🔥 modern browsers */
+  line-height: 1.5;
+}
+
+.info-content a {
+  color: var(--secondary-text);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.info-content a:hover {
+  color: var(--primary-text);
+}
+
+@media (max-width: 768px) {
+  .info-item {
+    align-items: flex-start;
+  }
+
+  .icon-badge {
+    width: 36px;
+    height: 36px;
+  }
+
+  .info-content label {
+    font-size: 0.85rem;
+  }
+
+  .info-content span {
+    font-size: 0.9rem;
+  }
+}

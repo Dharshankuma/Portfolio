@@ -107,7 +107,11 @@ const ContactSection = () => {
                 </div>
                 <div className="info-content">
                   <label>Email</label>
-                  <span>muthukumardharshan50@gmail.com</span>
+                  <span>
+                    <a href="mailto:muthukumardharshan50@gmail.com">
+                      muthukumardharshan50@gmail.com
+                    </a>
+                  </span>
                 </div>
               </div>
 
