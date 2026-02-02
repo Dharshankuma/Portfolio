@@ -27,6 +27,21 @@
   object-fit: cover;
 }
 
+.social_links {
+  display: flex;
+  gap: 20px;
+}
+
+.social_link {
+  color: #7b7b7b;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.social_link:hover {
+  color: var(--primary-text);
+}
+
 @media (max-width: 768px) {
   .hero_text {
     display: flex;

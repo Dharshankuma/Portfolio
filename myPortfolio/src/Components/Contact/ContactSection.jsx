@@ -122,13 +122,25 @@ const ContactSection = () => {
               </div>
 
               <div className="social-links">
-                <a href="#" className="social-link">
+                <a
+                  href="https://github.com/Dharshankuma"
+                  className="social-link"
+                  target="_blank"
+                >
                   <FaGithub size={20} />
                 </a>
-                <a href="#" className="social-link">
+                <a
+                  href="https://www.linkedin.com/in/dharshan-muthukumar-24656a1ba/"
+                  className="social-link"
+                  target="_blank"
+                >
                   <FaLinkedin size={20} />
                 </a>
-                <a href="#" className="social-link">
+                <a
+                  href="https://www.instagram.com/__dharshan_muthukumar__/"
+                  className="social-link"
+                  target="_blank"
+                >
                   <FaInstagram size={20} />
                 </a>
               </div>

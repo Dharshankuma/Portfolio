@@ -3,6 +3,7 @@ import heroImage from "../../../public/images/Dharshan.png";
 import { motion } from "framer-motion";
 import PageWrapper from "../../Animations/PageWrapper";
 import SectionWrapper from "../../Animations/SectionWrapper";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Hero = () => {
   return (
@@ -19,6 +20,29 @@ const Hero = () => {
             <div className="col-lg-6 col-md-6 hero_text order-2 order-md-1">
               <p className="hero_intro">Hello</p>
               <p className="hero_subline">— Dharshan ,Software developer</p>
+              <div className="social_links">
+                <a
+                  href="https://github.com/Dharshankuma"
+                  className="social_link"
+                  target="_blank"
+                >
+                  <FaGithub size={20} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/dharshan-muthukumar-24656a1ba/"
+                  className="social_link"
+                  target="_blank"
+                >
+                  <FaLinkedin size={20} />
+                </a>
+                <a
+                  href="https://www.instagram.com/__dharshan_muthukumar__/"
+                  className="social_link"
+                  target="_blank"
+                >
+                  <FaInstagram size={20} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
