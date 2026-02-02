@@ -8,8 +8,12 @@ import { useNavigate } from "react-router-dom";
 const AboutSection = () => {
   const navigate = useNavigate();
   const handlePdfDownload = () => {
-    const pdfUrl = "../../../public/pdf/DHARSHAN_resume.pdf";
-    window.open(pdfUrl, "_blank");
+    const link = document.createElement("a");
+    link.href = "/pdf/DHARSHAN_resume.pdf";
+    link.download = "DHARSHAN_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
