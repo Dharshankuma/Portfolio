@@ -1,0 +1,63 @@
+.common_card {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  padding: 20px;
+}
+.common_card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #222222;
+  transition: background 0.3s ease;
+}
+
+.common_card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+/* Title */
+.common-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Subtitle */
+.common-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #7b7b7b;
+  margin-top: 5px;
+}
+
+/* Bullet List */
+.common_list {
+  padding-left: 18px;
+}
+
+.common_list li {
+  font-size: 14px;
+  color: #222222;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.common-date {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #222222;
+  background-color: #efefef;
+  border: 1px solid #efefef;
+  border-radius: 20px;
+  white-space: nowrap;
+}
