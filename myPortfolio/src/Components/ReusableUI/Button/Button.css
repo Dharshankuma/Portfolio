@@ -62,3 +62,8 @@
     width: 220px;
   }
 }
+.type_3_btn {
+  background-color: #222222 !important;
+  color: #f8f8f8 !important;
+  width: 100% !important;
+}

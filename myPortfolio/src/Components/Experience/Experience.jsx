@@ -10,10 +10,10 @@ const Experience = () => {
         <div className="container-fluid">
           <h2 className="section-title">Experience</h2>
 
-          <div className="row">
+          <div className="row mt-2">
             {EXPERIENCE_LIST &&
               EXPERIENCE_LIST.map((item, index) => (
-                <div className="col-12" key={index}>
+                <div className="col-12 mt-3" key={index}>
                   <CommonCard lists={item} />
                 </div>
               ))}

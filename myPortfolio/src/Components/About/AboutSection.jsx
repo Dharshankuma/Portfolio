@@ -3,8 +3,10 @@ import aboutImage from "../../../public/images/Aboutme.png";
 import "./AboutSection.css";
 import { Button } from "../ReusableUI/Button/Button";
 import SectionWrapper from "../../Animations/SectionWrapper";
+import { useNavigate } from "react-router-dom";
 
 const AboutSection = () => {
+  const navigate = useNavigate();
   const handlePdfDownload = () => {
     const pdfUrl = "../../../public/pdf/DHARSHAN_resume.pdf";
     window.open(pdfUrl, "_blank");
@@ -29,19 +31,21 @@ const AboutSection = () => {
               </h2>
 
               <p className="mb-3">
-                Results-driven Software Developer with 2+ years of hands-on
-                experience in designing and building scalable, high-performance
-                backend systems.
+                Results-driven Software Developer with 2+ years of experience
+                building scalable and high-performance backend systems.
+              </p>
+
+              <p className="mb-3">
+                Specialized in developing RESTful APIs using ASP.NET Core, with
+                strong expertise in SQL Server for efficient data management and
+                performance optimization.
               </p>
 
               <p className="mb-4">
-                Specialized in developing RESTful APIs using ASP.NET Core, with
-                strong expertise in SQL Server for efficient data management and
-                performance optimization. Experienced in leveraging Microsoft
-                Azure for cloud deployment and service integration. While
-                backend development is my core focus, I work closely with
-                frontend teams and use React.js to ensure seamless API
-                integration and end-to-end application reliability.
+                Experienced in deploying and integrating services using
+                Microsoft Azure. Backend development is my core focus, while
+                collaborating closely with frontend teams using React.js to
+                deliver reliable end-to-end applications.
               </p>
 
               <div className="about-actions d-flex gap-3 flex-wrap">
@@ -55,6 +59,7 @@ const AboutSection = () => {
                   label={"Connect With Me"}
                   name={"contact_btn"}
                   className={"type_2_btn"}
+                  onClick={() => navigate("/contact")}
                 />
               </div>
             </div>

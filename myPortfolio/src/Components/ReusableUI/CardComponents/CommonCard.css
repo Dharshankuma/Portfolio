@@ -55,9 +55,20 @@
   padding: 6px 14px;
   font-size: 12px;
   font-weight: 500;
+  font-family: "Inter", sans-serif !important;
   color: #222222;
   background-color: #efefef;
   border: 1px solid #efefef;
   border-radius: 20px;
   white-space: nowrap;
+}
+.tech-stack {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #7b7b7b;
+}
+.education-focus {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #7b7b7b;
 }

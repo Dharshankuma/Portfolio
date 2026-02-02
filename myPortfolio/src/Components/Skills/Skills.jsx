@@ -12,6 +12,10 @@ const Skills = () => {
           <div className="row">
             <div className="col-12">
               <h2>SKILLS</h2>
+              <p>
+                Core strengths in backend development with hands-on experience
+                across databases, cloud, and frontend collaboration.
+              </p>
             </div>
           </div>
           <div className="row g-4 mt-3">

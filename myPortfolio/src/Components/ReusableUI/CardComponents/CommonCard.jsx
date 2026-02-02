@@ -2,9 +2,8 @@ import React from "react";
 import "./CommonCard.css";
 
 const CommonCard = ({ lists }) => {
-  console.log(lists);
   return (
-    <div className="card common_card mt-3">
+    <div className="card common_card">
       <div className="card-body">
         <div className="row">
           {/* Left Content */}
@@ -19,12 +18,20 @@ const CommonCard = ({ lists }) => {
 
             <p className="common-subtitle">{lists.subTitle}</p>
 
+            {lists.focus && <p className="education-focus">{lists.focus}</p>}
+
             <ul className="common_list">
               {lists.responsibilities &&
                 lists.responsibilities.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
             </ul>
+
+            {lists.techStack && (
+              <p className="tech-stack">
+                <strong>Tech Stack:</strong> {lists.techStack}
+              </p>
+            )}
           </div>
 
           {/* Desktop Date */}

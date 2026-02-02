@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <SectionWrapper>
       <section className="hero_section" id="home">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row align-items-center">
             {/* IMAGE — FIRST ON MOBILE */}
             <div className="col-md-6 hero_image text-md-end text-center order-1 order-md-2">

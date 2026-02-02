@@ -23,12 +23,6 @@ export const SKILLS_DATA = [
     ],
   },
   {
-    id: "languages",
-    title: "Languages & Frameworks",
-    icon: FaCode,
-    skills: ["C#", "ASP.NET Core"],
-  },
-  {
     id: "databases",
     title: "Databases",
     icon: FaDatabase,
@@ -44,12 +38,12 @@ export const SKILLS_DATA = [
     id: "frontend",
     title: "Frontend",
     icon: PiMonitorFill,
-    skills: ["React.js", "JavaScript", "HTML", "CSS", "jQuery"],
+    skills: ["React.js", "JavaScript", "HTML", "CSS"],
   },
   {
     id: "tools",
     title: "Tools",
     icon: FaTerminal,
-    skills: ["Git", "Postman"],
+    skills: ["Git", "Postman", "GitHub"],
   },
 ];
