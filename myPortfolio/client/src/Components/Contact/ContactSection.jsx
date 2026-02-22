@@ -52,16 +52,47 @@ const ContactSection = () => {
     }
   };
 
-  /* ⚠️ TEMPORARY POLISH (frontend-safe) */
+  // /* ⚠️ TEMPORARY POLISH (frontend-safe) */
+  // const handlePolish = async () => {
+  //   if (!formData.message.trim()) return;
+
+  //   setIsPolishing(true);
+
+  //   // Simulated polish (safe for frontend)
+  //   setTimeout(() => {
+  //     setIsPolishing(false);
+  //   }, 600);
+  // };
+
   const handlePolish = async () => {
     if (!formData.message.trim()) return;
 
-    setIsPolishing(true);
+    try {
+      setIsPolishing(true);
+      const response = await fetch("http://localhost:3000/api/ai/polishText", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: formData.message,
+        }),
+      });
 
-    // Simulated polish (safe for frontend)
-    setTimeout(() => {
+      console.log(response);
+      const data = await response.json();
+
+      if (data?.polished) {
+        setFormData((prev) => ({
+          ...prev,
+          message: data.polished,
+        }));
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
       setIsPolishing(false);
-    }, 600);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -152,6 +183,7 @@ const ContactSection = () => {
           </div>
 
           {/* RIGHT: Contact Form */}
+          {/*
           <div className="col-lg-7">
             <div className="custom-card">
               <form onSubmit={handleSubmit} noValidate>
@@ -212,7 +244,7 @@ const ContactSection = () => {
                     <label className="form-label-custom">
                       Message <span className="error_mand">*</span>
                     </label>
-                    {/*
+
                     <button
                       type="button"
                       onClick={handlePolish}
@@ -221,7 +253,6 @@ const ContactSection = () => {
                     >
                       {isPolishing ? "Polishing..." : "✨ AI Polish"}
                     </button>
-                    */}
                   </div>
                   <textarea
                     name="message"
@@ -246,6 +277,7 @@ const ContactSection = () => {
               </form>
             </div>
           </div>
+          */}
         </div>
       </div>
     </section>
