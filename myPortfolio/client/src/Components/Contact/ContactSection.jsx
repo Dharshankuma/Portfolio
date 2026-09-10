@@ -1,286 +1,134 @@
 import React, { useState } from "react";
-import "./Contact.css";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaLocationDot, FaCopy, FaCheck } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
-import { FaLocationDot } from "react-icons/fa6";
-import { Button } from "../ReusableUI/Button/Button";
+import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
+import SectionWrapper from "../../Animations/SectionWrapper";
+import "./Contact.css";
+
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isPolishing, setIsPolishing] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const emailAddress = "muthukumardharshan50@gmail.com";
 
-  const validate = () => {
-    const newErrors = {};
-
-    if (!formData.fullName.trim()) newErrors.fullName = "Required";
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email";
-    }
-    if (!formData.subject.trim()) newErrors.subject = "Required";
-
-    if (!formData.message.trim()) newErrors.message = "Required";
-
-    setErrors(newErrors);
-    console.log(errors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: undefined,
-      }));
-    }
-  };
-
-  // /* ⚠️ TEMPORARY POLISH (frontend-safe) */
-  // const handlePolish = async () => {
-  //   if (!formData.message.trim()) return;
-
-  //   setIsPolishing(true);
-
-  //   // Simulated polish (safe for frontend)
-  //   setTimeout(() => {
-  //     setIsPolishing(false);
-  //   }, 600);
-  // };
-
-  const handlePolish = async () => {
-    if (!formData.message.trim()) return;
-
-    try {
-      setIsPolishing(true);
-      const response = await fetch("http://localhost:3000/api/ai/polishText", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          message: formData.message,
-        }),
-      });
-
-      console.log(response);
-      const data = await response.json();
-
-      if (data?.polished) {
-        setFormData((prev) => ({
-          ...prev,
-          message: data.polished,
-        }));
-      }
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setIsPolishing(false);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!validate()) return;
-
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setShowModal(true);
-      setFormData({
-        fullName: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-    }, 1000);
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(emailAddress);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2500);
   };
 
   return (
-    <section className="contact_section">
-      <div className="container-fluid">
-        {/* Header */}
-        <div className="contact-header text-center">
-          <h1 className="contact-title">Contact</h1>
-          <p className="contact-subtitle">
-            Have a project in mind or just want to chat about tech? Feel free to
-            reach out for collaboration or opportunities.
-          </p>
-        </div>
+    <SectionWrapper>
+      <section className="contact_section portfolio-section" id="contact">
+        <div className="portfolio-container">
+          {/* Header */}
+          <div className="section_header text-center">
+            <span className="section-tag">
+              <HiOutlineChatBubbleLeftRight /> Get In Touch
+            </span>
+            <h2 className="section-title">
+              Let's Build Something <span className="gradient-text">Meaningful</span>
+            </h2>
+            <p className="section-subtitle mx-auto">
+              Open for full-time software engineering roles, backend architecture collaborations, and technical opportunities. Let's start a conversation.
+            </p>
+          </div>
 
-        <div className="row justify-content-center g-4">
-          {/* LEFT: Contact Info */}
-          <div className="col-lg-4">
-            <div className="custom-card">
-              <h2 className="info-title">Let's connect</h2>
+          <div className="contact_grid">
+            {/* Contact Info Card */}
+            <div className="contact_info_panel glass-panel">
+              <h3 className="info_card_title">Direct Contact & Channels</h3>
+              <p className="info_card_subtitle">
+                Feel free to email me directly or connect via LinkedIn & GitHub. I typically respond within 24 hours.
+              </p>
 
-              <div className="info-item">
-                <div className="icon-badge">
-                  <IoMdMail />
-                </div>
-                <div className="info-content">
-                  <label>Email</label>
-                  <span>
-                    <a href="mailto:muthukumardharshan50@gmail.com">
-                      muthukumardharshan50@gmail.com
+              <div className="contact_items_list">
+                {/* Email Item */}
+                <div className="contact_info_item">
+                  <div className="contact_icon_badge">
+                    <IoMdMail size={20} />
+                  </div>
+                  <div className="contact_item_text">
+                    <label>Email Address</label>
+                    <a href={`mailto:${emailAddress}`} className="contact_email_link">
+                      {emailAddress}
                     </a>
-                  </span>
+                  </div>
+                  <button
+                    type="button"
+                    className="copy_email_btn"
+                    onClick={handleCopyEmail}
+                    title="Copy email to clipboard"
+                    aria-label="Copy email address"
+                  >
+                    {copiedEmail ? <FaCheck className="copied" size={14} /> : <FaCopy size={14} />}
+                    <span>{copiedEmail ? "Copied" : "Copy"}</span>
+                  </button>
+                </div>
+
+                {/* Location Item */}
+                <div className="contact_info_item">
+                  <div className="contact_icon_badge">
+                    <FaLocationDot size={18} />
+                  </div>
+                  <div className="contact_item_text">
+                    <label>Location</label>
+                    <span>Chennai, Tamil Nadu, India</span>
+                  </div>
+                </div>
+
+                {/* Work Status Item */}
+                <div className="contact_info_item">
+                  <div className="contact_icon_badge">
+                    <span className="live_indicator_dot"></span>
+                  </div>
+                  <div className="contact_item_text">
+                    <label>Status</label>
+                    <span className="status_highlight">Available for Software Engineer Roles</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="info-item">
-                <div className="icon-badge">
-                  <FaLocationDot />
+              {/* Social Channels */}
+              <div className="contact_social_section">
+                <span className="social_section_label">Social & Developer Profiles</span>
+                <div className="contact_social_links">
+                  <a
+                    href="https://github.com/Dharshankuma"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact_social_btn"
+                    aria-label="GitHub Profile"
+                  >
+                    <FaGithub size={18} />
+                    <span>GitHub</span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/dharshan-muthukumar-24656a1ba/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact_social_btn"
+                    aria-label="LinkedIn Profile"
+                  >
+                    <FaLinkedin size={18} />
+                    <span>LinkedIn</span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/__dharshan_muthukumar__/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact_social_btn"
+                    aria-label="Instagram Profile"
+                  >
+                    <FaInstagram size={18} />
+                    <span>Instagram</span>
+                  </a>
                 </div>
-                <div className="info-content">
-                  <label>Location</label>
-                  <span>Chennai, TamilNadu, India</span>
-                </div>
-              </div>
-
-              <div className="social-links">
-                <a
-                  href="https://github.com/Dharshankuma"
-                  className="social-link"
-                  target="_blank"
-                >
-                  <FaGithub size={20} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/dharshan-muthukumar-24656a1ba/"
-                  className="social-link"
-                  target="_blank"
-                >
-                  <FaLinkedin size={20} />
-                </a>
-                <a
-                  href="https://www.instagram.com/__dharshan_muthukumar__/"
-                  className="social-link"
-                  target="_blank"
-                >
-                  <FaInstagram size={20} />
-                </a>
               </div>
             </div>
           </div>
-
-          {/* RIGHT: Contact Form */}
-          {/*
-          <div className="col-lg-7">
-            <div className="custom-card">
-              <form onSubmit={handleSubmit} noValidate>
-                <div className="row g-3 mb-4">
-                  <div className="col-md-6">
-                    <label className="form-label-custom">
-                      Full Name <span className="error_mand">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      placeholder=""
-                      className={`input-custom ${errors.fullName ? "border-dark" : ""}`}
-                    />
-                    {errors.fullName && (
-                      <div className="error-msg">{errors.fullName}</div>
-                    )}
-                  </div>
-                  <div className="col-md-6">
-                    <label className="form-label-custom">
-                      Email Address <span className="error_mand">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder=""
-                      className={`input-custom ${errors.email ? "border-dark" : ""}`}
-                    />
-                    {errors.email && (
-                      <div className="error-msg">{errors.email}</div>
-                    )}
-                  </div>
-                </div>
-
-                <div className="mb-4">
-                  <label className="form-label-custom">
-                    Subject <span className="error_mand">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="Inquiry about software development"
-                    className={`input-custom ${errors.email ? "border-dark" : ""}`}
-                  />
-                  {errors.subject && (
-                    <div className="error-msg">{errors.subject}</div>
-                  )}
-                </div>
-
-                <div className="mb-4">
-                  <div className="label-wrapper">
-                    <label className="form-label-custom">
-                      Message <span className="error_mand">*</span>
-                    </label>
-
-                    <button
-                      type="button"
-                      onClick={handlePolish}
-                      disabled={isPolishing || !formData.message.trim()}
-                      className="btn-polish"
-                    >
-                      {isPolishing ? "Polishing..." : "✨ AI Polish"}
-                    </button>
-                  </div>
-                  <textarea
-                    name="message"
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="How can I help you?"
-                    className={`input-custom ${errors.message ? "border-dark" : ""}`}
-                    style={{ resize: "none" }}
-                  ></textarea>
-                  {errors.message && (
-                    <div className="error-msg">{errors.message}</div>
-                  )}
-                </div>
-
-                <Button
-                  type={"submit"}
-                  disabled={isSubmitting}
-                  className={"type_3_btn"}
-                  label={isSubmitting ? "Sending...." : "Send Message"}
-                />
-              </form>
-            </div>
-          </div>
-          */}
         </div>
-      </div>
-    </section>
+      </section>
+    </SectionWrapper>
   );
 };
 

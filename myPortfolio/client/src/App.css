@@ -1,3 +1,59 @@
-.container-fluid {
-  padding: 30px 40px !important;
+/* App Main Container & Section Spacing */
+.app_content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+/* Base Container Override for Modern Look */
+.portfolio-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .portfolio-container {
+    padding: 0 36px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .portfolio-container {
+    padding: 0 48px;
+  }
+}
+
+.portfolio-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .portfolio-section {
+    padding: 110px 0;
+  }
+}
+
+/* Subtle Grid Background Pattern */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glass Card Utility */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-card-hover);
+  box-shadow: var(--shadow-glow);
 }

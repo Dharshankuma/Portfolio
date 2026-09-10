@@ -1,4 +1,5 @@
 import React from "react";
+import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import SkillCard from "../ReusableUI/CardComponents/SkillCard";
 import SectionWrapper from "../../Animations/SectionWrapper";
 import { SKILLS_DATA } from "./SkillsContent";
@@ -7,24 +8,31 @@ import "./Skills.css";
 const Skills = () => {
   return (
     <SectionWrapper>
-      <section className="mt-5 mb-4">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-12">
-              <h2>SKILLS</h2>
-              <p>
-                Core strengths in backend development with hands-on experience
-                across databases, cloud, and frontend collaboration.
-              </p>
-            </div>
+      <section className="skills_section portfolio-section" id="skills">
+        <div className="portfolio-container">
+          {/* Section Header */}
+          <div className="section_header text-center">
+            <span className="section-tag">
+              <HiOutlineWrenchScrewdriver /> Technical Stack
+            </span>
+            <h2 className="section-title">
+              Technologies & <span className="gradient-text">Ecosystem</span>
+            </h2>
+            <p className="section-subtitle mx-auto">
+              A comprehensive toolkit developed through hands-on enterprise software engineering, database optimization, and modern web application development.
+            </p>
           </div>
-          <div className="row g-4 mt-3">
+
+          {/* Skills Grid */}
+          <div className="skills_grid">
             {SKILLS_DATA.map((category) => (
-              <div className="col-12 col-md-6 col-lg-4" key={category.id}>
+              <div className="skill_grid_item" key={category.id}>
                 <SkillCard
                   icon={category.icon}
                   title={category.title}
+                  description={category.description}
                   skills={category.skills}
+                  isPrimary={category.isPrimary}
                 />
               </div>
             ))}

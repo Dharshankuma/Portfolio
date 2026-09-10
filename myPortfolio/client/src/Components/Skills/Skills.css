@@ -1,0 +1,29 @@
+/* ==========================================================================
+   SKILLS SECTION STYLES
+   ========================================================================== */
+
+.skills_section {
+  position: relative;
+}
+
+.skills_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .skills_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills_grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.skill_grid_item {
+  display: flex;
+}

@@ -1,68 +1,184 @@
-.about-section {
-  overflow-x: hidden;
+/* ==========================================================================
+   ABOUT SECTION STYLES
+   ========================================================================== */
+
+.about_section {
+  position: relative;
 }
 
-/* Image */
-.about-image-wrapper {
+.section_header {
+  margin-bottom: 56px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about_main_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .about_main_grid {
+    grid-template-columns: 360px 1fr;
+    gap: 48px;
+  }
+}
+
+/* Left Profile Card */
+.about_profile_card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: sticky;
+  top: 100px;
+}
+
+.about_img_frame {
   width: 100%;
-  max-width: 500px;
-  height: 600px;
-  border-radius: 18px;
+  aspect-ratio: 1/1.15;
+  border-radius: var(--radius-md);
   overflow: hidden;
+  position: relative;
+  background: #090d16;
+  margin-bottom: 20px;
 }
 
-.about-image-wrapper img {
+.about_img {
   width: 100%;
-  object-position: top;
+  height: 100%;
   object-fit: cover;
+  object-position: top center;
+  transition: transform var(--transition-smooth);
 }
 
-/* Content */
-.about-content p {
-  line-height: 1.7;
+.about_profile_card:hover .about_img {
+  transform: scale(1.03);
+}
+
+.about_quick_info {
+  width: 100%;
+}
+
+.profile_name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.profile_role {
+  font-size: 0.875rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.profile_meta {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Right Details */
+.about_details {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.about_narrative {
+  padding: 36px;
+  border-radius: var(--radius-lg);
+}
+
+.narrative_heading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.narrative_text {
   font-size: 0.95rem;
-}
-.about-content {
-  margin-top: -10px;
-}
-
-/* Tablet */
-@media (max-width: 992px) {
-  .about-image-wrapper {
-    max-width: 300px;
-    height: 400px;
-  }
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .about-image-wrapper {
-    max-width: 220px;
-    height: 260px;
-  }
+.narrative_text:last-of-type {
+  margin-bottom: 28px;
+}
 
-  .about-content {
-    text-align: center;
-  }
+.narrative_text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
 
-  .about-content p {
-    font-size: 0.9rem;
-  }
+.about_actions_row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
 
-  .about-actions {
-    justify-content: center;
-  }
+/* Highlights Grid */
+.highlights_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
 
-  .about-actions {
-    flex-direction: column;
-    align-items: center;
+@media (min-width: 640px) {
+  .highlights_grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Small devices */
-@media (max-width: 480px) {
-  .about-image-wrapper {
-    max-width: 200px;
-    height: 280px;
-  }
+.highlight_item {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.highlight_icon_box {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: var(--accent-primary);
+  margin-bottom: 16px;
+}
+
+.highlight_title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.highlight_desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
 }

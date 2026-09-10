@@ -1,17 +1,27 @@
 import React from "react";
-import { FaServer } from "react-icons/fa6";
 import "./SkillCard.css";
-const SkillCard = ({ icon: Icon, title, skills }) => {
+
+const SkillCard = (props) => {
+  const { icon: Icon, title, description, skills, isPrimary = false } = props;
   return (
-    <div className="skill-card">
-      <div className="card-icon-wrapper">
-        <Icon size={24} />
+    <div className={`skill-card glass-panel ${isPrimary ? "primary-skill-card" : ""}`}>
+      <div className="skill-card-header">
+        <div className="card-icon-wrapper">
+          <Icon size={20} />
+        </div>
+        <div className="card-title-group">
+          <h3 className="card-title">{title}</h3>
+          {description && <p className="card-description">{description}</p>}
+        </div>
       </div>
-      <h3 className="card-title">{title}</h3>
+
+      <div className="skills-divider"></div>
+
       <div className="skills-container">
         {skills.map((skill, index) => (
           <span key={index} className="skill-chip">
-            {skill}
+            <span className="chip-dot"></span>
+            <span className="chip-text">{skill}</span>
           </span>
         ))}
       </div>

@@ -1,0 +1,12 @@
+/* ==========================================================================
+   EXPERIENCE SECTION STYLES
+   ========================================================================== */
+
+.experience_section {
+  position: relative;
+}
+
+.experience_list_wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
