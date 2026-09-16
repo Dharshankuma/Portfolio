@@ -69,7 +69,8 @@
   max-width: 560px;
 }
 
-.text-white {
+.hero_description strong,
+.hero_highlight {
   color: var(--text-primary);
   font-weight: 600;
 }

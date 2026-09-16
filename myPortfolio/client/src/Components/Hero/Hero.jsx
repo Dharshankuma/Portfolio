@@ -36,7 +36,7 @@ const Hero = () => {
               {/* Status Badge */}
               <div className="hero_badge">
                 <HiSparkles className="badge_icon" />
-                <span>Software Developer & Backend Engineer</span>
+                <span>Software Engineer</span>
               </div>
 
               {/* Main Headline */}
@@ -46,7 +46,7 @@ const Hero = () => {
 
               {/* Subtitle / Value Prop */}
               <p className="hero_description">
-                I'm <strong className="text-white">Dharshan</strong>, a software engineer with 2+ years of experience designing robust ASP.NET Core services, optimizing high-throughput SQL Server databases, and integrating modern cloud platforms with reactive user interfaces.
+                I'm <strong className="hero_highlight">Dharshan</strong>, a software engineer with 2+ years of experience designing robust ASP.NET Core services, optimizing high-throughput SQL Server databases, and integrating modern cloud platforms with reactive user interfaces.
               </p>
 
               {/* Tech Highlight Pills */}
