@@ -112,9 +112,9 @@ const Footer = () => {
             © {new Date().getFullYear()} M Dharshan. All rights reserved.
           </p>
 
-          <p className="footer_stack_credit">
+          {/* <p className="footer_stack_credit">
             Engineered with <span className="credit_tech">React</span> & <span className="credit_tech">Vite</span>
-          </p>
+          </p> */}
 
           <button
             type="button"

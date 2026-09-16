@@ -88,17 +88,30 @@
   border-top: 1px solid var(--border-subtle);
 }
 
-/* Right Details - Clean Editorial Style (No Heavy Outer Box) */
+/* Right Details - Clean Spacious Card */
 .about_details {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
 }
 
 .about_narrative {
-  padding: 0; /* Clean open layout without boxed enclosure */
-  background: transparent;
-  border: none;
+  padding: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.about_narrative:hover {
+  border-color: var(--border-card-hover);
+}
+
+@media (max-width: 640px) {
+  .about_narrative {
+    padding: 22px 18px;
+  }
 }
 
 .narrative_heading {
@@ -116,7 +129,7 @@
 }
 
 .narrative_text:last-of-type {
-  margin-bottom: 24px;
+  margin-bottom: 26px;
 }
 
 .narrative_text strong {
