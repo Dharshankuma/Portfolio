@@ -1,0 +1,97 @@
+/* ==========================================================================
+   BRAND LOGO STYLES (dharshan.dev)
+   ========================================================================== */
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  user-select: none;
+  transition: opacity var(--transition-fast);
+}
+
+.brand-lockup:hover {
+  opacity: 0.9;
+}
+
+.dharshan-symbol {
+  display: block;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.dharshan-symbol.has-glow {
+  filter: drop-shadow(0 0 10px var(--accent-glow));
+}
+
+.brand-lockup.horizontal {
+  flex-direction: row;
+}
+
+.brand-lockup.vertical {
+  flex-direction: column;
+  text-align: center;
+  gap: 14px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  display: flex;
+  align-items: baseline;
+  line-height: 1.1;
+}
+
+.brand-prefix {
+  color: var(--text-primary);
+}
+
+.brand-dot {
+  color: var(--accent-primary);
+  font-weight: 800;
+  margin: 0 1px;
+}
+
+.brand-suffix {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.brand-role {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 3px;
+  font-family: var(--font-mono);
+}
+
+/* Subtle micro-pulse animation on the node */
+@keyframes nodePulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.pulse-node {
+  transform-origin: 75px 36px;
+  animation: nodePulse 3s ease-in-out infinite;
+}

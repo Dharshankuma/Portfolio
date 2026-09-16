@@ -10,9 +10,10 @@ import "./Hero.css";
 
 const Hero = () => {
   const handleScrollTo = (id) => {
-    const element = document.querySelector(id);
+    const targetId = id.replace("#", "");
+    const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -45,7 +46,7 @@ const Hero = () => {
 
               {/* Subtitle / Value Prop */}
               <p className="hero_description">
-                I'm <strong className="text-white">Dharshan Muthukumar</strong>, a software developer with 2+ years of experience designing robust ASP.NET Core services, optimizing high-throughput SQL Server databases, and integrating modern cloud platforms with reactive user interfaces.
+                I'm <strong className="text-white">Dharshan</strong>, a software engineer with 2+ years of experience designing robust ASP.NET Core services, optimizing high-throughput SQL Server databases, and integrating modern cloud platforms with reactive user interfaces.
               </p>
 
               {/* Tech Highlight Pills */}

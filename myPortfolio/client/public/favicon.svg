@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dharshan-grad" x1="15%" y1="15%" x2="90%" y2="90%">
+      <stop offset="0%" stop-color="#A78BFA" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+    <linearGradient id="dharshan-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C4B5FD" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+  </defs>
+
+  <rect x="18" y="18" width="12" height="64" rx="6" fill="url(#dharshan-grad)" />
+  <path d="M 30 24 H 54 C 72 24 84 35 84 50 C 84 65 72 76 54 76 H 30" 
+        stroke="url(#dharshan-grad)" 
+        stroke-width="12" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+  <circle cx="52" cy="50" r="6.5" fill="url(#dharshan-accent)" />
+  <circle cx="75" cy="36" r="2.5" fill="#C4B5FD" />
+</svg>

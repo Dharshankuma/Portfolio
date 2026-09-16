@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { FiMenu, FiX, FiFileText, FiArrowUpRight } from "react-icons/fi";
+import { DharshanSymbol } from "../BrandLogo/BrandLogo";
+import ThemeToggle from "./ThemeToggle";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState("");
 
+  const navLinks = [
+    { name: "About", targetId: "about" },
+    { name: "Projects", targetId: "projects" },
+    { name: "Experience", targetId: "experience" },
+    { name: "Skills", targetId: "skills" },
+    { name: "Education", targetId: "education" },
+    { name: "Contact", targetId: "contact" },
+  ];
+
+  // Scroll detection for navbar background elevation
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -21,58 +32,88 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // IntersectionObserver to detect currently visible section without URL hashes
+  useEffect(() => {
+    const sectionIds = navLinks.map((link) => link.targetId);
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -60% 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const closeMenu = () => setOpen(false);
 
-  const handleNavClick = (hash) => {
+  // Smooth scroll to section without modifying URL
+  const scrollToSection = (id) => {
     closeMenu();
-    if (location.pathname === "/") {
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-  const navLinks = [
-    { name: "About", href: "/#about", path: "/about" },
-    { name: "Projects", href: "/#projects" },
-    { name: "Experience", href: "/#experience" },
-    { name: "Skills", href: "/#skills" },
-    { name: "Contact", href: "/#contact", path: "/contact" },
-  ];
+  // Smooth scroll to top without modifying URL
+  const scrollToTop = () => {
+    closeMenu();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <header className={`navbar_wrapper ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar_inner">
-        {/* Brand Logo */}
-        <Link to="/" onClick={() => handleNavClick("#home")} className="navbar_brand">
-          <span className="brand_prefix">dharshan</span>
-          <span className="brand_dot">.</span>
-          <span className="brand_suffix">dev</span>
-        </Link>
+        {/* Left Section: Standalone Brand Symbol & Live Status */}
+        <div className="navbar_left">
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="navbar_brand"
+            aria-label="dharshan.dev - Home"
+          >
+            <DharshanSymbol size={36} glow className="navbar_logo_icon" />
+          </button>
 
-        {/* Live Availability Badge (Desktop) */}
-        <div className="status_pill d-none d-lg-flex">
-          <span className="status_pulse"></span>
-          <span className="status_text">Available for Opportunities</span>
+          {/* Live Availability Badge (Desktop) */}
+          <div className="status_pill d-none d-lg-flex">
+            <span className="status_pulse"></span>
+            <span className="status_text">Available for Opportunities</span>
+          </div>
         </div>
 
         {/* Desktop Navigation Links */}
         <nav className="navbar_nav d-none d-md-flex">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.name}
-              href={link.href}
-              onClick={() => handleNavClick(link.href.replace("/", ""))}
-              className="nav_link"
+              type="button"
+              onClick={() => scrollToSection(link.targetId)}
+              className={`nav_link ${activeSection === link.targetId ? "active" : ""}`}
             >
               {link.name}
-            </a>
+            </button>
           ))}
         </nav>
 
-        {/* Header Right Action CTA */}
+        {/* Header Right Actions: Theme Toggle + Resume CTA */}
         <div className="navbar_actions d-none d-md-flex">
+          <ThemeToggle />
           <a
             href="/pdf/DHARSHAN_resume.pdf"
             target="_blank"
@@ -85,15 +126,18 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle Button */}
-        <button
-          className={`mobile_toggle d-md-none ${open ? "open" : ""}`}
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle Navigation Menu"
-          aria-expanded={open}
-        >
-          {open ? <FiX size={24} /> : <FiMenu size={24} />}
-        </button>
+        {/* Mobile Header Right */}
+        <div className="mobile_header_actions d-md-none">
+          <ThemeToggle className="mobile_theme_btn" />
+          <button
+            className={`mobile_toggle ${open ? "open" : ""}`}
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle Navigation Menu"
+            aria-expanded={open}
+          >
+            {open ? <FiX size={22} /> : <FiMenu size={22} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer Navigation */}
@@ -106,14 +150,14 @@ const Navbar = () => {
 
           <div className="mobile_nav_links">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
-                onClick={() => handleNavClick(link.href.replace("/", ""))}
-                className="mobile_nav_link"
+                type="button"
+                onClick={() => scrollToSection(link.targetId)}
+                className={`mobile_nav_link ${activeSection === link.targetId ? "active" : ""}`}
               >
                 {link.name}
-              </a>
+              </button>
             ))}
           </div>
 

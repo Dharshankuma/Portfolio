@@ -1,0 +1,52 @@
+/* ==========================================================================
+   THEME TOGGLE BUTTON STYLES
+   ========================================================================== */
+
+.theme_toggle_btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.theme_toggle_btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-card-hover);
+  color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+.theme_icon_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme_icon {
+  font-size: 1rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme_icon.sun {
+  color: #f59e0b;
+}
+
+.theme_icon.moon {
+  color: #a78bfa;
+}
+
+.theme_toggle_btn:hover .theme_icon {
+  transform: rotate(15deg);
+}

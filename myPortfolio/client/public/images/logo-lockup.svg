@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="lockup-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="50%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+    <linearGradient id="lockup-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2DD4BF" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+  </defs>
+
+  <!-- SYMBOL (Scaled & Aligned) -->
+  <g transform="translate(10, 10) scale(0.6)">
+    <!-- Backbone -->
+    <rect x="18" y="18" width="12" height="64" rx="6" fill="url(#lockup-grad)" />
+    <!-- Loop -->
+    <path d="M 30 24 H 54 C 72 24 84 35 84 50 C 84 65 72 76 54 76 H 30" 
+          stroke="url(#lockup-grad)" 
+          stroke-width="12" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+    <!-- Kernel Node -->
+    <circle cx="52" cy="50" r="6.5" fill="url(#lockup-accent)" />
+    <!-- Pulse Node -->
+    <circle cx="75" cy="36" r="2.5" fill="#38BDF8" />
+  </g>
+
+  <!-- TYPOGRAPHY: dharshan.dev -->
+  <text x="82" y="47" font-family="'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#F8FAFC" letter-spacing="-0.5">
+    dharshan<tspan fill="#10B981">.</tspan><tspan fill="url(#lockup-grad)" font-family="'JetBrains Mono', monospace" font-weight="600">dev</tspan>
+  </text>
+  
+  <!-- Subtitle: SOFTWARE ENGINEER -->
+  <text x="84" y="64" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600" fill="#64748B" letter-spacing="2.5">
+    SOFTWARE ENGINEER
+  </text>
+</svg>

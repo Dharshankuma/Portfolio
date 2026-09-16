@@ -1,5 +1,5 @@
 /* ==========================================================================
-   BUTTON COMPONENT - PREMIUM MODERN SYSTEM
+   BUTTON COMPONENT - PREMIUM MODERN SYSTEM (DUAL THEME COMPLIANT)
    ========================================================================== */
 
 .custom-btn {
@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 13px 26px;
+  padding: 12px 24px;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   font-weight: 600;
@@ -41,60 +41,50 @@
 }
 
 /* ==========================================================================
-   PRIMARY BUTTON - ILLUMINATED EMERALD
+   PRIMARY BUTTON
    ========================================================================== */
-.btn-primary {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+.btn-primary,
+.type_1_btn {
+  background: var(--accent-gradient) !important;
   color: #ffffff !important;
   font-weight: 600;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    0 4px 16px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 14px var(--accent-glow);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.btn-primary:hover {
-  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 8px 24px rgba(16, 185, 129, 0.45),
-    0 0 20px rgba(16, 185, 129, 0.2);
+.btn-primary:hover,
+.type_1_btn:hover {
   transform: translateY(-2px);
+  box-shadow: 0 8px 22px var(--accent-glow);
+  border-color: rgba(255, 255, 255, 0.4);
   color: #ffffff !important;
 }
 
-.btn-primary:active {
+.btn-primary:active,
+.type_1_btn:active {
   transform: translateY(0);
-  box-shadow:
-    inset 0 1px 2px rgba(0, 0, 0, 0.3),
-    0 2px 8px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 2px 8px var(--accent-glow);
 }
 
 /* ==========================================================================
-   SECONDARY BUTTON - FROSTED GLASS & POLISHED BORDER
+   SECONDARY BUTTON
    ========================================================================== */
 .btn-secondary,
 .type_2_btn {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  color: #f1f5f9 !important;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-card) !important;
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover,
 .type_2_btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(16, 185, 129, 0.45);
-  color: #ffffff !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    0 6px 20px rgba(0, 0, 0, 0.35),
-    0 0 15px rgba(16, 185, 129, 0.15);
+  background: var(--bg-card-hover) !important;
+  border-color: var(--accent-primary) !important;
+  color: var(--text-primary) !important;
   transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-secondary:active,
@@ -108,13 +98,13 @@
 .btn-outline {
   background: transparent;
   color: var(--text-primary);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-card);
 }
 
 .btn-outline:hover {
   border-color: var(--accent-primary);
   color: var(--accent-primary);
-  background: rgba(16, 185, 129, 0.08);
+  background: var(--badge-bg);
   transform: translateY(-2px);
 }
 
@@ -126,33 +116,25 @@
 
 .btn-ghost:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--bg-subtle);
 }
 
 /* ==========================================================================
-   BACKWARD COMPATIBILITY & UTILITY VARIANTS
+   FULL-WIDTH BUTTON
    ========================================================================== */
-.type_1_btn {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: #ffffff !important;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
-}
-
 .type_3_btn {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  background: var(--accent-gradient) !important;
   color: #ffffff !important;
   font-weight: 600 !important;
   width: 100% !important;
   padding: 14px 24px !important;
   border-radius: var(--radius-md) !important;
   border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3) !important;
+  box-shadow: 0 4px 14px var(--accent-glow) !important;
 }
 
 .type_3_btn:hover {
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.45) !important;
+  box-shadow: 0 8px 24px var(--accent-glow) !important;
   transform: translateY(-2px) !important;
 }
 

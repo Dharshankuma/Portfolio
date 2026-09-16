@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaInstagram, FaArrowUp } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
+import { DharshanSymbol } from "../BrandLogo/BrandLogo";
 import "./Footer.css";
 
 const Footer = () => {
@@ -12,12 +12,20 @@ const Footer = () => {
     });
   };
 
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   const navLinks = [
-    { name: "About", href: "/#about" },
-    { name: "Projects", href: "/#projects" },
-    { name: "Experience", href: "/#experience" },
-    { name: "Skills", href: "/#skills" },
-    { name: "Contact", href: "/#contact" },
+    { name: "About", targetId: "about" },
+    { name: "Projects", targetId: "projects" },
+    { name: "Experience", targetId: "experience" },
+    { name: "Skills", targetId: "skills" },
+    { name: "Education", targetId: "education" },
+    { name: "Contact", targetId: "contact" },
   ];
 
   return (
@@ -26,13 +34,16 @@ const Footer = () => {
         <div className="footer_top">
           {/* Brand & Mission */}
           <div className="footer_brand_col">
-            <Link to="/" onClick={scrollToTop} className="footer_brand">
-              <span className="brand_prefix">dharshan</span>
-              <span className="brand_dot">.</span>
-              <span className="brand_suffix">dev</span>
-            </Link>
+            <button
+              type="button"
+              onClick={scrollToTop}
+              className="footer_brand"
+              aria-label="dharshan.dev - Back to top"
+            >
+              <DharshanSymbol size={36} className="footer_logo_icon" glow />
+            </button>
             <p className="footer_tagline">
-              Software Developer specializing in ASP.NET Core, C#, Azure Cloud, and high-performance database architectures.
+              Software Engineer specializing in Backend Systems, ASP.NET Core, C#, Azure Cloud, and high-performance database architectures.
             </p>
           </div>
 
@@ -41,9 +52,14 @@ const Footer = () => {
             <h4 className="footer_col_title">Navigation</h4>
             <div className="footer_nav_links">
               {navLinks.map((link) => (
-                <a key={link.name} href={link.href} className="footer_nav_link">
+                <button
+                  key={link.name}
+                  type="button"
+                  onClick={() => scrollToSection(link.targetId)}
+                  className="footer_nav_link"
+                >
                   {link.name}
-                </a>
+                </button>
               ))}
             </div>
           </div>
@@ -62,7 +78,7 @@ const Footer = () => {
                 <FaGithub size={18} />
               </a>
               <a
-                href="https://www.linkedin.com/in/dharshan-muthukumar-24656a1ba/"
+                href="https://linkedin.com/in/dharshan-m"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer_icon_btn"
@@ -71,7 +87,14 @@ const Footer = () => {
                 <FaLinkedin size={18} />
               </a>
               <a
-                href="https://www.instagram.com/__dharshan_muthukumar__/"
+                href="mailto:dharshankumar.m16@gmail.com"
+                className="footer_icon_btn"
+                aria-label="Email"
+              >
+                <IoMdMail size={18} />
+              </a>
+              <a
+                href="https://instagram.com/dharshan__16"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer_icon_btn"
@@ -79,32 +102,25 @@ const Footer = () => {
               >
                 <FaInstagram size={18} />
               </a>
-              <a
-                href="mailto:muthukumardharshan50@gmail.com"
-                className="footer_icon_btn"
-                aria-label="Email"
-              >
-                <IoMdMail size={18} />
-              </a>
             </div>
           </div>
         </div>
 
-        {/* Footer Bottom Bar */}
+        {/* Footer Bottom */}
         <div className="footer_bottom">
           <p className="footer_copy">
-            © {new Date().getFullYear()} Dharshan Muthukumar. All rights reserved.
+            © {new Date().getFullYear()} M Dharshan. All rights reserved.
           </p>
 
           <p className="footer_stack_credit">
-            Engineered with <span className="credit_tech">React 19</span> & <span className="credit_tech">Framer Motion</span>
+            Engineered with <span className="credit_tech">React</span> & <span className="credit_tech">Vite</span>
           </p>
 
           <button
             type="button"
-            className="back_to_top_btn"
             onClick={scrollToTop}
-            aria-label="Back to top of page"
+            className="back_to_top_btn"
+            aria-label="Scroll back to top"
           >
             <span>Back to top</span>
             <FaArrowUp size={12} />

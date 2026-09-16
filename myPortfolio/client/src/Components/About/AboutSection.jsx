@@ -15,9 +15,9 @@ const AboutSection = () => {
   };
 
   const handleScrollToContact = () => {
-    const element = document.querySelector("#contact");
+    const element = document.getElementById("contact");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -66,7 +66,7 @@ const AboutSection = () => {
             <div className="about_profile_card">
               <div className="about_img_frame">
                 <img
-                  src="/images/Aboutme.png"
+                  src="/images/Aboutme1.png"
                   alt="Dharshan Muthukumar"
                   className="about_img"
                 />
@@ -74,8 +74,8 @@ const AboutSection = () => {
               </div>
 
               <div className="about_quick_info">
-                <h3 className="profile_name">Dharshan Muthukumar</h3>
-                <p className="profile_role">Software Developer · Backend Specialist</p>
+                <h3 className="profile_name">M Dharshan</h3>
+                <p className="profile_role">Software Engineer</p>
                 <div className="profile_meta">
                   <span>📍 Chennai, India</span>
                   <span>🎓 MCA (2025–2027)</span>
@@ -86,15 +86,14 @@ const AboutSection = () => {
             {/* RIGHT CONTENT & PILLARS */}
             <div className="about_details">
               <div className="about_narrative glass-panel">
-                <h3 className="narrative_heading">Backend Specialist with a Full-Stack Perspective</h3>
                 <p className="narrative_text">
-                  I am a results-driven Software Developer with <strong>2+ years of production experience</strong> creating robust backend systems, high-concurrency RESTful APIs, and cloud-integrated solutions.
+                  Backend Software Developer with <strong>2+ years of professional experience</strong> designing and developing secure, scalable and high-performance web apps using <strong>ASP.NET Core, C#, SQL Server, Entity Framework Core and Microsoft Azure technologies.</strong>
                 </p>
                 <p className="narrative_text">
-                  My core specialization centers on <strong>ASP.NET Core, C#, and Microsoft SQL Server</strong>, with a focus on database query optimization, indexing strategies, and clean service architectures across enterprise applications.
+                  Developed secure <strong>RESTful APIs, implemented JWT authentication and authorization, optimized database and Entity Framework queries, and designed cloud-based backend services with Azure.</strong>
                 </p>
                 <p className="narrative_text">
-                  While my foundation is deeply anchored in backend engineering, I frequently build reactive frontends with <strong>React.js and modern JavaScript</strong>, ensuring seamless full-stack integrations from database layer to user interface.
+                  Follow clean software engineering practices such as <strong>Clean Architecture, Repository Pattern and Dependency Injection, and work closely with React.js to build end-to-end applications. Passionate about Backend Engineering, Cloud Technologies, Scalable Systems and Production-Grade Software Development</strong>
                 </p>
 
                 <div className="about_actions_row">
